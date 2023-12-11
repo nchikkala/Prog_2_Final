@@ -91,12 +91,13 @@ if predict_button:
     st.write(f"- **Age:** {age} years old")
 
 st.markdown('---')
-'
-'
-'
-'
-'
-'
+st.markdown()
+st.markdown()
+st.markdown()
+st.markdown()
+st.markdown()
+st.markdown()
+st.markdown()
 
 
 st.header('Analysis plots: Check out which factors have an impact on LinkedIn usage')
