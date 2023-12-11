@@ -61,7 +61,7 @@ gender = st.sidebar.radio('Gender (Female or Male):', list(gender_mapping.keys()
 age = st.sidebar.slider('Age:', 1, 98, 25)
 
 # Predict Button
-predict_button = st.button("Predict", key="prediction_button")
+predict_button = st.sidebar.button("Predict", key="prediction_button")
 
 if predict_button:
     income = int(income)
