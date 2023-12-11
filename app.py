@@ -131,7 +131,6 @@ st.pyplot(fig)
 
 
 #FEEDBACK
-feedback_list = []
 user_feedback = st.text_area("Feedback:", "Share your thoughts...")
 
 # Submit Feedback button
@@ -147,7 +146,7 @@ def clear_feedback(developer_code):
         st.success("Feedback has been cleared.")
 
 # Get developer code
-developer_code = st.text_input("Developer Code (e.g., password):", type="1234")
+developer_code = st.text_input("Developer Code (e.g., password):", type="password")
 
 # Call the clear_feedback function
 clear_feedback(developer_code)
