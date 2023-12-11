@@ -36,7 +36,7 @@ st.title("Are you a LinkedIn User?")
 st.markdown("""
     ## LinkedIn Usage Prediction App
     This app is designed to predict whether an individual uses LinkedIn based on certain features. 
-    Use the fields in the sidebar to select options and select "Predict" to see the result!
+    Click on the arrow in the top left corner to reveal the sidebar,  select options and click "Predict" to see the result!
 """)
 income_mapping = {1: 'Less than $10,000', 2: '$10,000 - $19,999', 3: '$20,000 - $29,999', 
                   4: '$30,000 - $39,999', 5: '$40,000 - $49,999', 6: '$50,000 - $74,999', 
@@ -91,7 +91,8 @@ if predict_button:
     st.write(f"- **Age:** {age} years old")
 
 st.markdown('---')
-
+st.markdown('Analysis plots: Check out which factors have an impact on LinkedIn usage')
+st.markdown('---')
 st.subheader("Marital Status vs. Income with LinkedIn Usage")
 #Plot 1
 fig, ax1 = plt.subplots()
@@ -132,28 +133,21 @@ st.pyplot(fig)
 
 #FEEDBACK
 feedback_list = []
-
-# User feedback input
+# User feedback 
 user_feedback = st.text_area("Feedback:", "Share your thoughts...")
-
 # Submit Feedback button
 if st.button("Submit Feedback"):
     feedback_list.append(user_feedback)
     st.success("Thank you for your feedback!")
-
-# Developer-only: Clear Feedback button
+#Developer
 @st.cache(allow_output_mutation=True)
 def clear_feedback(developer_code):
     if developer_code == "secret_code" and st.button("Clear Feedback (Developer Only)"):
         feedback_list.clear()
         st.success("Feedback has been cleared.")
-
-# Get developer code
-developer_code = st.text_input("Developer Code (e.g., password):", type="password")
-
-# Call the clear_feedback function
+#Developer Center
+developer_code = st.text_input("Developer Code:", type="1234")
 clear_feedback(developer_code)
-
 # Display Reviews
 st.subheader("User Feedback:")
 for feedback in feedback_list:
