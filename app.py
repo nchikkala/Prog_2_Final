@@ -115,7 +115,6 @@ ax1.set_xlabel('LinkedIn User (0: No, 1: Yes)')
 ax1.set_ylabel('Average Income', color='black')
 ax2.set_ylabel('Average Education', color='black')
 plt.title('Comparison of Average Income and Education by LinkedIn Usage')
-plt.legend(loc='upper left')
 st.pyplot(fig)
 
 st.subheader("Income usage vs. LinkedIn Usage with Age")
