@@ -133,14 +133,31 @@ st.pyplot(fig)
 #FEEDBACK
 feedback_list = []
 user_feedback = st.text_area("Feedback:", "Share your thoughts...")
+
+# Submit Feedback button
 if st.button("Submit Feedback"):
     feedback_list.append(user_feedback)
     st.success("Thank you for your feedback!")
-#Clear Feedback
-if st.button("Clear Feedback (Developer Only)"):
-    feedback_list = []
-    st.success("Feedback has been cleared.")
-#Display Reviews
+    # Save feedback to file
+    with open(feedback_file_path, "w") as file:
+        file.write("\n".join(feedback_list))
+
+# Developer-only: Clear Feedback button
+@st.cache(allow_output_mutation=True)
+def clear_feedback(developer_code):
+    if developer_code == "secret_code" and st.button("Clear Feedback (Developer Only)"):
+        feedback_list.clear()
+        with open(feedback_file_path, "w") as file:
+            file.write("")
+        st.success("Feedback has been cleared.")
+
+# Get developer code
+developer_code = st.text_input("Developer Code (e.g., password):", type="password")
+
+# Call the clear_feedback function
+clear_feedback(developer_code)
+
+# Display Reviews
 st.subheader("User Feedback:")
 for feedback in feedback_list:
     st.write(feedback)
