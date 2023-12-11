@@ -38,6 +38,10 @@ st.markdown("""
     This app is designed to predict whether an individual uses LinkedIn based on certain features. 
     Click on the arrow in the top left corner to reveal the sidebar,  select options and click "Predict" to see the result!
 """)
+st.markdown('See your results below')
+
+
+
 income_mapping = {1: 'Less than $10,000', 2: '$10,000 - $19,999', 3: '$20,000 - $29,999', 
                   4: '$30,000 - $39,999', 5: '$40,000 - $49,999', 6: '$50,000 - $74,999', 
                   7: '$75,000 - $99,999', 8: '$100,000 - $149,999', 9: '$150,000 or more'}
