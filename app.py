@@ -98,10 +98,10 @@ st.markdown('---')
 
 
 st.title("""
-### Analysis plots: Check out which factors have an impact on LinkedIn usage
+##### Analysis plots: Check out which factors have an impact on LinkedIn usage
 """)
 
-st.markdown('---')
+
 
 
 st.subheader("Marital Status vs. Income with LinkedIn Usage")
