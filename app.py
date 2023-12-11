@@ -158,7 +158,7 @@ def clear_feedback(developer_code):
         feedback_list.clear()
         st.success("Feedback has been cleared.")
 #Developer Center
-developer_code = st.text_input("Developer Code:", type="1234")
+developer_code = st.text_input("Developer Code:", type="password")
 clear_feedback(developer_code)
 # Display Reviews
 st.subheader("User Feedback:")
