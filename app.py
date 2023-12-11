@@ -108,16 +108,15 @@ st.subheader("Marital Status vs. Income with LinkedIn Usage")
 #Plot 1
 fig, ax1 = plt.subplots()
 grouped_data = ss.groupby('sm_li').agg({'income': 'mean', 'educ2': 'mean'})
-sns.lineplot(data=grouped_data, x=grouped_data.index, y='Income', marker='o')
+sns.lineplot(data=grouped_data, x=grouped_data.index, y='income', marker='o', label='Average Income')
 ax2 = ax1.twinx()
-sns.lineplot(data=grouped_data, x=grouped_data.index, y='educ2', marker='s', color='blue')
+sns.lineplot(data=grouped_data, x=grouped_data.index, y='educ2', marker='s', color='blue', label='Average Education')
 ax1.set_xlabel('LinkedIn User (0: No, 1: Yes)')
 ax1.set_ylabel('Average Income', color='black')
 ax2.set_ylabel('Average Education', color='black')
 plt.title('Comparison of Average Income and Education by LinkedIn Usage')
 plt.legend(loc='upper left')
 st.pyplot(fig)
-
 
 st.subheader("Income usage vs. LinkedIn Usage with Age")
 
@@ -141,6 +140,7 @@ ax.set_ylabel('Count')
 plt.title(f'Distribution of LinkedIn Usage by Income (Age: {age_filter}-90)')
 ax.set_xticklabels(ax.get_xticklabels(), rotation=90)
 st.pyplot(fig)
+
 
 
 #FEEDBACK
