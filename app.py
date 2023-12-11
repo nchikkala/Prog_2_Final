@@ -143,19 +143,12 @@ if st.button("Submit Feedback"):
         file.write("\n".join(feedback_list))
 
 # Developer-only: Clear Feedback button
-@st.cache(allow_output_mutation=True)
-def clear_feedback(developer_code):
-    if developer_code == "secret_code" and st.button("Clear Feedback (Developer Only)"):
-        feedback_list.clear()
-        with open(feedback_file_path, "w") as file:
-            file.write("")
-        st.success("Feedback has been cleared.")
-
-# Get developer code
 developer_code = st.text_input("Developer Code (e.g., password):", type="password")
-
-# Call the clear_feedback function
-clear_feedback(developer_code)
+if developer_code == "secret_code" and st.button("Clear Feedback (Developer Only)"):
+    feedback_list = []
+    with open(feedback_file_path, "w") as file:
+        file.write("")
+    st.success("Feedback has been cleared.")
 
 # Display Reviews
 st.subheader("User Feedback:")
