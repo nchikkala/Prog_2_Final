@@ -131,6 +131,9 @@ st.pyplot(fig)
 
 
 #FEEDBACK
+feedback_list = []
+
+# User feedback input
 user_feedback = st.text_area("Feedback:", "Share your thoughts...")
 
 # Submit Feedback button
