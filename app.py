@@ -138,17 +138,19 @@ user_feedback = st.text_area("Feedback:", "Share your thoughts...")
 if st.button("Submit Feedback"):
     feedback_list.append(user_feedback)
     st.success("Thank you for your feedback!")
-    # Save feedback to file
-    with open(feedback_file_path, "w") as file:
-        file.write("\n".join(feedback_list))
 
 # Developer-only: Clear Feedback button
-developer_code = st.text_input("Developer Code (e.g., password):", type="password")
-if developer_code == "secret_code" and st.button("Clear Feedback (Developer Only)"):
-    feedback_list = []
-    with open(feedback_file_path, "w") as file:
-        file.write("")
-    st.success("Feedback has been cleared.")
+@st.cache(allow_output_mutation=True)
+def clear_feedback(developer_code):
+    if developer_code == "secret_code" and st.button("Clear Feedback (Developer Only)"):
+        feedback_list.clear()
+        st.success("Feedback has been cleared.")
+
+# Get developer code
+developer_code = st.text_input("Developer Code (e.g., password):", type="1234")
+
+# Call the clear_feedback function
+clear_feedback(developer_code)
 
 # Display Reviews
 st.subheader("User Feedback:")
