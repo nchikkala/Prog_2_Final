@@ -97,9 +97,9 @@ if predict_button:
 st.markdown('---')
 
 
-st.title('''
-###Analysis plots: Check out which factors have an impact on LinkedIn usage
-''')
+st.title("""
+### Analysis plots: Check out which factors have an impact on LinkedIn usage
+""")
 
 st.markdown('---')
 
