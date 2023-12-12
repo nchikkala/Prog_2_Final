@@ -167,7 +167,7 @@ st.pyplot(fig)
 
 # Plot 2: Distribution of LinkedIn Usage by Income
 # Age Filter
-age_filter = st.slider('Filter by Age:', 18, 90, 25)
+age_filter = st.slider('Filter by Age:', 18, 90, 25, key='age_slider')  # Added key parameter
 filtered_ss = ss[(ss['age'] >= age_filter) & (ss['age'] <= 90)]
 
 # Mapping
