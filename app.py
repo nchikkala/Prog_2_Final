@@ -155,6 +155,43 @@ ax.set_xticklabels(ax.get_xticklabels(), rotation=90)
 st.pyplot(fig)
 
 
+#### TRYING SOMETHING HERE: 
+# Plot 1: Comparison of Average Income by LinkedIn Usage
+fig, ax1 = plt.subplots()
+grouped_data = ss.groupby('sm_li').agg({'income': 'mean'})
+sns.lineplot(data=grouped_data, x=grouped_data.index, y='income', marker='o', label='Average Income', ax=ax1, color='green')
+ax1.set_xlabel('LinkedIn User (0: No, 1: Yes)')
+ax1.set_ylabel('Average Income', color='green')
+plt.title('Comparison of Average Income by LinkedIn Usage')
+st.pyplot(fig)
+
+# Plot 2: Distribution of LinkedIn Usage by Income
+# Age Filter
+age_filter = st.slider('Filter by Age:', 18, 90, 25)
+filtered_ss = ss[(ss['age'] >= age_filter) & (ss['age'] <= 90)]
+
+# Mapping
+income_mapping = {1: 'Less than $10,000', 2: '$10,000 - $19,999', 3: '$20,000 - $29,999',
+                  4: '$30,000 - $39,999', 5: '$40,000 - $49,999', 6: '$50,000 - $74,999',
+                  7: '$75,000 - $99,999', 8: '$100,000 - $149,999', 9: '$150,000 or more'}
+# Income Mapping
+filtered_ss['income'] = filtered_ss['income'].map(income_mapping)
+
+# Plotting
+fig, ax = plt.subplots()
+sns.countplot(x='income', hue='sm_li', data=filtered_ss, palette=['#3A1078', '#2F58CD'], ax=ax)
+ax.set_xlabel('Income')
+ax.set_ylabel('Count')
+plt.title(f'Distribution of LinkedIn Usage by Income (Age: {age_filter}-90)')
+ax.set_xticklabels(ax.get_xticklabels(), rotation=90)
+st.pyplot(fig)
+
+####
+
+
+
+
+
 
 #FEEDBACK
 feedback_list = []
