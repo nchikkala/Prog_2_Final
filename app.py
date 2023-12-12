@@ -159,7 +159,7 @@ st.pyplot(fig)
 # Plot 1: Comparison of Average Income by LinkedIn Usage
 fig, ax1 = plt.subplots()
 grouped_data = ss.groupby('sm_li').agg({'income': 'mean'})
-sns.lineplot(data=grouped_data, x=grouped_data.index, y='income', marker='o', label='Average Income', ax=ax1, color='green')
+sns.barplot(data=grouped_data, x=grouped_data.index, y='income', color='green', ax=ax1)  # Use sns.barplot instead of sns.lineplot
 ax1.set_xlabel('LinkedIn User (0: No, 1: Yes)')
 ax1.set_ylabel('Average Income', color='green')
 plt.title('Comparison of Average Income by LinkedIn Usage')
