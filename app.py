@@ -120,6 +120,19 @@ st.pyplot(fig)
 
 st.subheader("Income usage vs. LinkedIn Usage with Age")
 
+#Plot 1: 
+fig, ax1 = plt.subplots()
+grouped_data = ss.groupby('sm_li').agg({'income': 'mean'})
+sns.lineplot(data=grouped_data, x=grouped_data.index, y='income', marker='o', label='Average Income', ax=ax1, color='green')
+
+ax1.set_xlabel('LinkedIn User (0: No, 1: Yes)')
+ax1.set_ylabel('Average Income', color='green')
+plt.title('Comparison of Average Income by LinkedIn Usage')
+st.pyplot(fig)
+
+
+
+
 #Plot 2
 #Age Filter
 age_filter = st.slider('Filter by Age:', 18, 90, 25)
