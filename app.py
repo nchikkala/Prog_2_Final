@@ -35,7 +35,7 @@ lr.fit(X_train, y_train)
 st.title("Are you a LinkedIn User?")
 st.markdown("""
     ## LinkedIn Usage Prediction App
-    This app is designed to predict whether an individual uses LinkedIn based on certain features. 
+    This app is designed to predict whether an individual uses LinkedIn based on certain criteria. 
     Click on the arrow in the top left corner to reveal the sidebar,  select options and click "Predict" to see the result!
 """)
 st.markdown('See your results below')
@@ -56,11 +56,11 @@ parent_mapping = {1: 'No', 0: 'Yes'}
 st.sidebar.title("Input your Information here!")
 #Mapping Connector
 income = st.sidebar.selectbox('Income:', list(income_mapping.keys()), format_func=lambda x: income_mapping[x])
-education = st.sidebar.selectbox('Education:', list(education_mapping.keys()), format_func=lambda x: education_mapping[x])
-parent = st.sidebar.radio('Parent (Yes or No):', list(parent_mapping.keys()), format_func=lambda x: parent_mapping[x])
+education = st.sidebar.selectbox('Highest Level of Education Completed:', list(education_mapping.keys()), format_func=lambda x: education_mapping[x])
+parent = st.sidebar.radio('Are you a parent?:', list(parent_mapping.keys()), format_func=lambda x: parent_mapping[x])
 marital = st.sidebar.selectbox('Marital Status:', list(marital_mapping.keys()), format_func=lambda x: marital_mapping[x])
 gender = st.sidebar.radio('Gender (Female or Male):', list(gender_mapping.keys()), format_func=lambda x: gender_mapping[x])
-age = st.sidebar.slider('Age:', 1, 98, 25)
+age = st.sidebar.slider('How old are you?:', 1, 98, 25)
 
 # Predict Button
 predict_button = st.sidebar.button("Predict", key="prediction_button")
