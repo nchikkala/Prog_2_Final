@@ -133,7 +133,7 @@ st.pyplot(fig2)
 #FEEDBACK
 feedback_list = []
 # User feedback 
-user_feedback = st.text_area("Feedback:", "Share your thoughts...")
+user_feedback = st.text_area("Feedback:", "Share your thoughts...did we make an accurate prediction?")
 # Submit Feedback button
 if st.button("Submit Feedback"):
     feedback_list.append(user_feedback)
